@@ -1,6 +1,13 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/qm-fpFT_)
-# Exam #1: "Theater"
-## Student: s352452 Capitanio Letizia
+
+# Capitanio Letizia
+###  Highlights
+
+This project adopts **Security by Design** approach, featuring robust mechanisms for concurrency management, access control, and data integrity:
+
+* **RBAC & 2FA (IDOR Mitigation):** Authentication is managed via `passport.js` and secure session cookies. The backend actively prevents Insecure Direct Object Reference (IDOR) vulnerabilities through rigorous server-side resource ownership validation. Elevated Admin privileges are strictly gated behind Time-Based One-Time Password (TOTP) verification.
+* **Race Condition Mitigation & Safe State Handling:** The backend prevents double-booking anomalies through strict database-level conflict resolution. The React frontend remains synchronized via background polling and seamlessly manages "Stale Data," safely redirecting users away from concurrently modified or deleted resources.
+* **Anti-Abuse Mechanism (DoS Mitigation):** Enforces a custom 40-second time-based lockout rule at the database layer. This prevents malicious actors from exhausting seat availability by repeatedly blocking and releasing the same resources.
+* **Payload Sanitization & Input Validation:** Protects against Injection attacks and malformed payloads by enforcing strict server-side validation (`express-validator`) on all incoming API requests prior to database execution.
 
 ## React Client Application Routes
 
